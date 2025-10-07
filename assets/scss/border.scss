@@ -1,0 +1,56 @@
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.conic {
+  position: relative;
+  z-index: 1250;
+  width: auto;
+  height: auto;
+  margin: 10px;
+  border-radius: 18.4px;
+  overflow: hidden;
+ 
+  
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -3;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-image: conic-gradient(transparent, var(--bs-primary), transparent 50%);
+    animation: rotate 4s linear infinite;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 6px;
+    top: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    background: transparent;
+    border-radius: 5px;
+  }
+}
+
+.conic-demo::after {
+  animation: opacityChange 5s infinite linear;
+}
+
+@keyframes opacityChange {
+  50% {
+    opacity:.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
