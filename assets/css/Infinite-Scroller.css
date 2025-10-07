@@ -1,0 +1,34 @@
+.infinite-scroller {
+  overflow: hidden;
+}
+
+.infinite-scroller .scrollable {
+  display: flex;
+  width: fit-content;
+  animation: slide-to-left 33s linear infinite;
+}
+
+.infinite-scroller.pause-on-hover .scrollable:hover {
+  animation-play-state: paused;
+}
+
+@keyframes slide-to-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.infinite-scroller .scrollable > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 100vw;
+}
+
+.infinite-scroller .scrollable > div > * {
+  margin: 0 20px;
+}
+
